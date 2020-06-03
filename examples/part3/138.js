@@ -4,7 +4,7 @@ function promiseForHomework(mustDo) {
             console.log('doing homework');
             if(mustDo) {
                 resolve({
-                    return: 'homeworkd-result'
+                    result: 'homework-result'
                 });
             } else {
                 reject(new Error('Too lazy!'));
@@ -13,4 +13,12 @@ function promiseForHomework(mustDo) {
     });
 };
 
-const promiseA = promiseForHomework(ture);
+const promiseA = promiseForHomework(true);
+console.log('promiseA created');
+
+const promiseB = promiseForHomework();
+console.log('promiseB created');
+
+promiseA.then(v => console.log(v));
+promiseB.then(v => console.log(v))
+        .catch(e => console.log(e));
